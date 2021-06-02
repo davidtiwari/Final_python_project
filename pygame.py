@@ -59,3 +59,25 @@ def moveright() :
         head.direction="right"
 def movestop() :
     head.direction="stop"
+def move() :
+    if head.direction=="up":
+        y=head.ycor()
+        head.sety(y+20)
+    if head.direction == "down":
+        y = head.ycor()
+        head.sety(y - 20)
+    if head.direction == "left":
+        x = head.xcor()
+        head.setx(x - 20)
+    if head.direction == "right":
+        x = head.xcor()
+        head.setx(x + 20)
+
+#Event Handling - key mappings
+s.listen()
+s.onkey(moveup,"Up")
+s.onkey(movedown,"Down")
+s.onkey(moveleft,"Left")
+s.onkey(moveright,"Right")
+s.onkey(movestop,"space")
+
