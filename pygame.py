@@ -111,5 +111,39 @@ while True:
          body.fillcolor("black")
          bodies.append(body)  #append new body of snake to the bodies left
 
+         # increase the score
+         score += 10
+
+         # change delay
+         delay = 0.001
+
+         # update the heighest score
+         if score > heighestscore:
+             heighestscore = score
+         sb.clear()
+         sb.write("Score: {} Heighest  Score:  {}".format(score, heighestscore))
+         # move the snake bodies
+    for index in range(len(bodies) - 1, 0, -1):
+        x = bodies[index - 1].xcor()
+        y = bodies[index - 1].ycor()
+        bodies[index].goto(x, y)
+
+    if len(bodies) > 0:
+        x = head.xcor()
+        y = head.ycor()
+        bodies[0].goto(x, y)
+    move()
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
