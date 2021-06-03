@@ -81,3 +81,35 @@ s.onkey(moveleft,"Left")
 s.onkey(moveright,"Right")
 s.onkey(movestop,"space")
 
+
+#main loop
+while True:
+    s.update()  #this is to update the screen
+    #check collission with border
+    if head.xcor()>290:
+        head.setx(-290)
+    if head.xcor()<-290:
+        head.setx(290)
+    if head.ycor()>290:
+        head.sety(-290)
+    if head.ycor()<-290:
+        head.sety(290)
+
+    #check collission with food
+    if head.distance(food)<20:
+         #move the food to new random place
+         x=random.randint(-290,290)
+         y=random.randint(-290,290)
+         food.goto(x,y)
+
+         #increase the length of the snake
+         body=turtle.Turtle()
+         body.speed(0)
+         body.penup()
+         body.shape("square")
+         body.color("red")
+         body.fillcolor("black")
+         bodies.append(body)  #append new body of snake to the bodies left
+
+
+
